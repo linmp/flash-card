@@ -1,0 +1,15 @@
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.form-list-left{
+  display: flex;
+  margin:50rpx; 
+}
+
+/* 后期加入的颜色设置为绿色 */
+page {
+  background: #75b79e;
+}
+
+.profile {
+  background-color: #71af97;
+}

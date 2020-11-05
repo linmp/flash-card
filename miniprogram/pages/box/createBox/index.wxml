@@ -1,0 +1,55 @@
+<!--pages/clone/clone.wxml-->
+<cu-custom bgColor="bg-{{color}}" isBack="{{true}}">
+	<!-- <cu-custom bgColor="white" isBack="{{true}}"> -->
+	<view slot="backText">返回</view>
+	<view slot="content">添加卡集</view>
+</cu-custom>
+
+
+<view class="row-container">
+	<form bindsubmit="formSubmit" bindreset="formReset">
+
+		<view class="content-wrapper">
+
+			<view class="cu-form-group">
+				<view class="form-list-left">名称</view>
+				<view class="form-list-right">
+					<input type="text" placeholder="卡集的名称" maxlength="10" name="name" />
+				</view>
+			</view>
+
+
+			<view style="border-top:1px #ccc solid"></view>
+
+			<view class="cu-form-group">
+				<view class="form-list-left">密码</view>
+				<view class="form-list-right">
+					<input type="text" placeholder="卡集的访问密码" maxlength="10" name="password" />
+				</view>
+			</view>
+
+			<view style="border-top:1px #ccc solid"></view>
+
+			<!-- 颜色 -->
+<!-- 
+			<view class="padding-sm flex flex-wrap ">
+				<view class="padding-xs" wx:for="{{ColorList}}" data-color="{{item.name}}" bindtap="getColor">
+					<view class="cu-tag line-{{item.name}}">{{item.title}}</view>
+				</view>
+			</view> -->
+			<view class=" flex flex-wrap ">
+				<view class="padding-xs" wx:for="{{ColorList}}" data-color="{{item.name}}" bindtap="getColor">
+					<view class="cu-tag line-{{item.name}}">{{item.title}}</view>
+				</view>
+			</view>
+		
+			<view class="padding bg-white ">
+				<view class=" flex  p-xs margin-bottom-sm mb-sm bottom">
+					<button bindtap="onClone" class="flex-sub bg-blue margin-xs radius  ">克隆</button>
+					<button formType="submit" class="flex-treble bg-green margin-xs radius  ">新建卡集</button>
+				</view>
+			</view>
+
+		</view>
+	</form>
+</view>

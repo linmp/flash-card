@@ -1,0 +1,24 @@
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">记忆手卡</view>
+</cu-custom>
+
+
+<view class="container">
+	<text class="feedback-label">问题描述</text>
+	<view style="border-top:1px #ccc solid"></view>
+	<textarea class="feedback-text" placeholder="请详细你所遇到的问题" bindblur="getContent" />
+
+	<view style="border-top:1px #ccc solid"></view>
+
+	<text class="connect-label">联系方式</text>
+
+		<view style="border-top:1px #ccc solid"></view>
+
+    <textarea class="connect-text" placeholder="请留下您的联系方式（QQ/微信/电话/等）" bindblur="getConnection" />
+
+	<view style="border-top:1px #ccc solid"></view>
+
+	<button class="feedback-button block bg-green margin-tb-sm lg" bindtap="submitSuggestion">提交</button>
+
+</view>

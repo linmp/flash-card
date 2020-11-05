@@ -1,0 +1,58 @@
+/* pages/index/write.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+textarea {
+  width: 100%;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.form-list{
+    width:100%;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+.form-list-left{
+    width:15%;
+    float: left;
+    vertical-align:middle;
+
+}
+.form-list-right{
+    width:80%;
+    float: right;
+}
+
+
+.question-images-area {
+  padding: 40rpx 0;
+}
+
+.question-images-tool {
+  display: flex;
+  align-items: center;
+}
+
+.question-images {
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.q-image-wrap {
+  width: 31%;
+  margin-right: 10rpx;
+}
+
+.q-image {
+  flex: 1;
+  height: 200rpx;
+  width: 100%;
+}
+
+.q-image-remover {
+  text-align: center;
+}

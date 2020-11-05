@@ -1,0 +1,52 @@
+<!--pages/index/pinfo.wxml-->
+<cu-custom bgColor="bg-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">个人信息</view>
+</cu-custom>
+
+<view class="row-container bg-green">
+	<form bindsubmit="formSubmit" bindreset="formReset">
+
+		<view class="cu-form-group margin-top bg-green">
+			<view class="title">用户名</view>
+			<input disabled="true" placeholder="" value="{{username}}"></input>
+		</view>
+
+		<view class="cu-form-group margin-top bg-green">
+			<view class="title">创建时间</view>
+			<input disabled="true" placeholder="" value="{{create_time}}"></input>
+		</view>
+
+		<view class="cu-form-group margin-top bg-green">
+			<view class="title">唯一编号</view>
+			<input disabled="true" placeholder="" value="{{id}}"></input>
+		</view>
+
+		<view class="cu-form-group margin-top bg-green">
+			<view class="title">反馈信息数</view>
+			<input disabled="true" placeholder="" value="{{messages}}"></input>
+		</view>
+
+		<view class="cu-form-group margin-top bg-green">
+			<view class="title">图片数量</view>
+			<input disabled="true" placeholder="" value="{{photos}}"></input>
+		</view>
+
+		<view class="cu-form-group margin-top bg-green">
+			<view class="title">账号列表</view>
+			<picker value="{{index}}" range="{{openids}}">
+
+				<view class="picker">
+					{{index?picker[index]:'浏览列表'}}
+				</view>
+			</picker>
+		</view>
+
+		<view class="cu-form-group bg-green">
+			<view class="title">手机</view>
+			<input disabled="true" placeholder="" value="{{phone}}"></input>
+			<button class="cu-btn  bg-white shadow" bindtap="gotobind">绑定</button>
+		</view>
+
+	</form>
+</view>

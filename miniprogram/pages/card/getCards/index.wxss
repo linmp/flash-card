@@ -1,0 +1,25 @@
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+page {
+  background: #f4f4f4;
+  display: block;
+  height: 100%;
+}
+
+.container{
+  padding:20px;
+  min-height: 100%;
+}
+
+.word-content {
+  margin: 23rpx auto 18rpx;
+  font-family: Chalkboard;
+  font-size: 64rpx;
+}
+
+.word-definition {
+  margin-top: 19rpx;
+  font-family: Yuanti TC;
+  font-size: 30rpx;
+  color: #585858;
+}

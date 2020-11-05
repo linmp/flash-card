@@ -1,0 +1,77 @@
+<cu-custom >
+	<view slot="content">卡片筛选</view>
+</cu-custom>
+
+<!-- 多选框 盒子选择 -->
+<view class="cu-bar bg-white margin-top">
+	<view class="action">
+		<text class="cuIcon-title text-green "></text> 卡集选择
+	</view>
+	<view class="padding-sm flex flex-wrap">
+		<view class="padding-xs">
+			<view class="cu-tag line-green">{{cardsData[index].box_name}}</view>
+		</view>
+	</view>
+	<view class="action">
+		<button class="cu-btn bg-green shadow" bindtap="showModal" data-target="ChooseModal">Choose</button>
+	</view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+	<view class="cu-dialog" catchtap>
+		<view class="cu-bar bg-white">
+			<view class="action text-blue" bindtap="hideModal">取消</view>
+			<!-- <view class="action text-green" bindtap="hideModal">确定</view> -->
+			<view class="action text-green" bindtap="showModal" data-target="RadioModal">确定</view>
+		</view>
+		<view class="grid col-3 padding-sm">
+			<view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+				<button class="cu-btn green lg block {{item.checked?'bg-green':'line-green'}}" bindtap="ChooseCheckbox" data-box_id="{{item.box_id}}"> {{item.box_name}}
+				</button>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 单选框 排序方式 -->
+<!-- <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal" > -->
+<view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="updateNewSelectCards">
+	<view class="cu-dialog" catchtap>
+
+		<radio-group class="block" bindchange="radioChange">
+			<view class="cu-list menu text-left">
+				<view class="cu-item" wx:for="{{orderType}}" wx:key>
+					<label class="flex justify-between align-center flex-sub">
+						<view class="flex-sub">{{item.name}}</view>
+						<radio class="round" checked="{{item.checked}}" value="{{item.value}}"></radio>
+					</label>
+				</view>
+			</view>
+		</radio-group>
+
+	</view>
+</view>
+
+<!-- 卡背面不能全局左右切换 -->
+<view wx:if="{{showNot}}" class="container" bindtap="mytap" bindlongpress="mylongtap">
+	<view class="padding flex text-center text-grey bg-{{cardsData[index].card_color}} shadow radius" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+		<text class="word-content">{{cardsData[index].question}}</text>
+	</view>
+
+
+	<wemark md="{{cardsData[index].answer}}" link highlight type="wemark"></wemark>
+
+</view>
+
+<view wx:else class="container" bindtap="mytap" bindlongpress="mylongtap" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+
+	<view class="padding flex text-center text-grey bg-{{cardsData[index].card_color}} shadow-warp radius">
+		<text class="word-content">{{cardsData[index].question}}</text>
+	</view>
+</view>
+
+
+<view class="nextCard" bindtap="next">
+	<image src="../../../images/next.png"></image>
+	<text>Next</text>
+</view>

@@ -1,0 +1,39 @@
+.createCard { 
+  height: 120rpx;
+  width: 120rpx;
+  position: fixed;
+  bottom: 170rpx;
+  right: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  background: rgba(0, 0, 0, .6);
+  border-radius: 50%;
+  z-index: 10;
+} 
+.createCard image {
+  height: 70rpx;
+  width: 70rpx;
+}
+.createCard text {
+  color: #fff;  
+}
+
+.createCard button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+  z-index: 99;
+}
+
+.mdStyle{
+  padding:20px;
+  min-height: 100%;
+}
+
+.scrollPage {
+  height: 100vh;
+}

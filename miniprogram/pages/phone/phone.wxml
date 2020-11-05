@@ -1,0 +1,15 @@
+<cu-custom bgColor="bg-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">获取手机验证码</view></cu-custom>
+<form bindsubmit='formSubmit' class=" bg-green">
+  <view class='cu-form-group bg-green'>
+    <text>手机号：</text>
+    <input name="phone" placeholder='请输入手机号' type='number' style='color:#333' placeholder-style="color:#666" maxlength="11" bindinput ="gcode" ></input>
+    <text>\n</text>
+    <button  class="cu-btn bg-white shadow" bindtap="getcode" >获取验证码</button>
+    
+  </view>
+  <view class="cu-form-group bg-green">
+  <text>验证码：</text>
+    <input name="code" placeholder='请输入验证码' type='number' style='color:#666' placeholder-style="color:#666" maxlength="11" ></input>
+  <button class="cu-btn bg-white shadow" formType="submit">提交</button>
+  </view>
+</form>

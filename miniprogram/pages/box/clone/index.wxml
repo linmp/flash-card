@@ -1,0 +1,41 @@
+<!--pages/clone/clone.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">复制卡集</view>
+</cu-custom>
+
+
+<view class="row-container">
+	<form bindsubmit="formSubmit" bindreset="formReset">
+
+		<view class="content-wrapper">
+
+			<view style="border-top:1px #ccc solid"></view>
+
+			<view class="cu-form-group">
+				<view class="form-list-left">卡集ID</view>
+				<view class="form-list-right">
+					<input type="number" placeholder="卡集的唯一编号ID" maxlength="10" name="box_id" />
+				</view>
+			</view>
+
+			<view style="border-top:1px #ccc solid"></view>
+
+			<view class="cu-form-group">
+				<view class="form-list-left">密码</view>
+				<view class="form-list-right">
+					<input type="text" placeholder="卡集的访问密码" maxlength="10" name="password" />
+				</view>
+			</view>
+
+			<view style="border-top:1px #ccc solid"></view>
+
+			<view class="padding bg-white ">
+				<view class=" flex  p-xs margin-bottom-sm mb-sm bottom">
+					<button formType="submit" class="flex-treble bg-green margin-xs radius  ">复制</button>
+				</view>
+			</view>
+
+		</view>
+	</form>
+</view>

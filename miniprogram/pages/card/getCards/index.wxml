@@ -1,0 +1,22 @@
+<cu-custom isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">记忆手卡</view>
+</cu-custom>
+
+
+<view wx:if="{{showNot}}" class="container" bindtap="mytap" bindlongpress="mylongtap">
+	<view class="padding flex text-center text-grey bg-{{cardsData[index].card_color}} shadow-warp" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+		<text class="word-content">{{cardsData[index].question}}</text>
+	</view>
+
+
+	<wemark md="{{cardsData[index].answer}}" link highlight type="wemark"></wemark>
+
+</view>
+
+<view wx:else class="container" bindtap="mytap" bindlongpress="mylongtap" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+
+	<view class="padding flex text-center text-grey bg-{{cardsData[index].card_color}} shadow-warp">
+		<text class="word-content">{{cardsData[index].question}}</text>
+	</view>
+</view>

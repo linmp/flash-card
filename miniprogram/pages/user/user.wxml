@@ -1,0 +1,151 @@
+<cu-custom bgColor="bg-green">
+	<view slot="content">记忆手卡</view>
+</cu-custom>
+
+<view class="UCenter-bg">
+	<view class="userinfo">
+		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"
+			style="margin-bottom:10px;">一键登录</button>
+		<block wx:else>
+			<navigator class="content" url="/pages/profile/profile" hover-class="none">
+				<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			</navigator>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view>
+
+	<image src="https://cdn.jamkung.com/cards/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+</view>
+
+
+
+<block wx:if="{{!hasUserInfo && canIUse}}">
+	<view style="text-align:center">首次使用,需要授权用户</view>
+</block>
+
+<block wx:else>
+	<view class="padding flex text-center text-grey bg-white shadow-warp">
+
+		<view class="flex flex-sub flex-direction">
+			<navigator class="content" url="/pages/card/getCards/index?card_status=un_understand&doubleTabStatus=understand"
+				hover-class="none">
+				<view class="text-xxl text-red">{{count.un_understand_count}}</view>
+			</navigator>
+			<view class="margin-top-sm">
+				<navigator class="content" url="pages/card/getCards/index?card_status=un_understand&doubleTabStatus=understand"
+					hover-class="none">
+					<text class="cuIcon-attentionfill"></text> 未掌握 </navigator>
+			</view>
+		</view>
+
+		<view class="flex flex-sub flex-direction">
+			<navigator class="content" url="/pages/card/getCards/index?card_status=understand&doubleTabStatus=un_understand"
+				hover-class="none">
+				<view class="text-xxl text-green">{{count.understand_count}}</view>
+			</navigator>
+			<navigator class="content" url="/pages/card/getCards/index?card_status=understand&doubleTabStatus=un_understand"
+				hover-class="none">
+				<view class="margin-top-sm">
+					<text class="cuIcon-attentionfill"></text> 已掌握</view>
+			</navigator>
+		</view>
+
+		<!-- <view class="flex flex-sub flex-direction">
+			<navigator class="content" url="/pages/card/getCards/index?card_status=collect&doubleTabStatus=un_collect" hover-class="none">
+				<view class="text-xxl text-blue">{{count.collect_count}}</view>
+			</navigator>
+			<navigator class="content" url="/pages/card/getCards/index?card_status=collect&doubleTabStatus=un_collect" hover-class="none">
+				<view class="margin-top-sm">
+					<text class="cuIcon-attentionfill"></text> 已收藏</view>
+			</navigator>
+		</view> -->
+
+	</view>
+
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/card/cardsList/index" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">我的卡片</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/photo/index" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">我的图片</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/box/store/index" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">我的分享</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/box/clone/index" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">克隆卡集</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/box/store/index" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">卡集士多</text>
+			</navigator>
+		</view>
+
+
+
+
+		<!-- <view class="cu-item arrow">
+			<navigator class="content" url="/pages/profile/profile" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">个人资料</text>
+			</navigator>
+		</view> -->
+
+
+		<!-- <view class="cu-item arrow">
+			<view class="content" bindtap="showQrcode">
+				<text class="cuIcon-appreciatefill"></text>
+				<text class="text-gray">赞赏支持</text>
+			</view>
+		</view> -->
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/feedback/feedback" hover-class="none">
+				<text class="cuIcon-writefill"></text>
+				<text class="text-gray">联系我们</text>
+			</navigator>
+		</view>
+
+
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/about/about" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">关于我们</text>
+			</navigator>
+		</view>
+
+		<view class="cu-item arrow">
+			<navigator class="content" url="/pages/instruction/index" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">使用说明</text>
+			</navigator>
+		</view>
+
+		<!-- <view class="cu-item arrow">
+			<navigator class="content" url="/pages/about/about" hover-class="none">
+				<text class="cuIcon-pay"></text>
+				<text class="text-gray">通用设置</text>
+			</navigator>
+		</view> -->
+
+
+	</view>
+</block>

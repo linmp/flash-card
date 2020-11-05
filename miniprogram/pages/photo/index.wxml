@@ -1,0 +1,40 @@
+<!--pages/photo/index.wxml-->
+<cu-custom  isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">选择图片</view>
+</cu-custom>
+
+<view class="cu-bar bg-white margin-top">
+	<view class="action">
+		图片上传
+	</view>
+	<view class="action">
+		{{imgList.length}}/4
+	</view>
+</view>
+<view class="cu-form-group">
+	<view class="grid col-4 grid-square flex-sub">
+		<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+			<image src='{{imgList[index]}}' mode='aspectFill'></image>
+			<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+				<text class="cuIcon-close"></text>
+			</view>
+		</view>
+		<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+			<text class="cuIcon-cameraadd"></text>
+		</view>
+	</view>
+</view>
+
+<view class="cu-form-group">
+	<view class="grid col-4 grid-square flex-sub">
+		<view class="bg-img" wx:for="{{payload}}" wx:key="index" bindtap="CopyLink" data-mdurl="{{payload[index].md_url}}" bindlongpress="deletePhoto" data-url="{{payload[index].url}}">
+			<image src='{{payload[index].small_url}}' mode='aspectFill'></image>
+		</view>
+	</view>
+</view>
+
+<view class="photo" bindtap="uploadPhoto">
+	<image src="../../images/upload.png"></image>
+	<text>上传</text>
+</view>

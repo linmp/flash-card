@@ -1,0 +1,85 @@
+<cu-custom bgColor="bg-{{color}}" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content" class="text-cut">{{box_name}}的卡片</view>
+</cu-custom>
+
+<view class="Clone" bindtap="toCloneBox">
+	<image src="../../../images/clone2.png"></image>
+	<text>复制</text>
+</view>
+
+
+<!-- 简介 -->
+<view class="cu-card article " data-box_id="{{isLookSummary}}}" bindtap="onLookSummary">
+
+	<view class="cu-item bg-{{color}} shadow">
+		<view class="title bg-{{color}} ">
+			<view class="text-cut">《卡集介绍》</view>
+		</view>
+
+		<view class="content bg-{{color}} ">
+
+			<view class="desc">
+				<view class="text-content "> {{summary}}</view>
+
+				<!-- 标签 -->
+				<!-- <view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.card_id}}</view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.collection}}</view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.error_times}}</view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.understand}}</view>
+				</view> -->
+			</view>
+		</view>
+	</view>
+	<!-- <view class="mdStyle" wx:if="{{showNot&&bindCardId==item.card_id}}"> -->
+	<view class="mdStyle" wx:if="{{isLookSummary}}">
+		<!-- 滚动 -->
+		<scroll-view scroll-y class="scrollSummaryPage">
+			<wemark md="{{summary}}" link highlight type="wemark"></wemark>
+		</scroll-view>
+	</view>
+
+</view>
+
+
+
+
+<!-- <view class="cu-card article {{isCard?'no-card':''}}"> -->
+<view class="cu-card article " wx:for="{{cardsData}}" data-box_id="{{item.box_id}}" data-card_id="{{item.card_id}}" bindtap="onShowCardAnswer" >
+
+	<view class="cu-item bg-{{item.card_color}} shadow">
+		<view class="title bg-{{item.card_color}} ">
+			<view class="text-cut">{{item.question}}</view>
+		</view>
+
+		<view class="content bg-{{item.card_color}} ">
+			<!-- <image src="https://cdn.jamkung.com/cards/hyg.jpg" mode="aspectFill"></image> -->
+			<view class="desc">
+				<view class="text-content "> {{item.answer}}</view>
+
+				<!-- 标签 -->
+				<!-- <view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.card_id}}</view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.collection}}</view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.error_times}}</view>
+					<view class="cu-tag bg-{{item.card_color}} light sm round">{{item.understand}}</view>
+				</view> -->
+
+			</view>
+		</view>
+
+	</view>
+
+
+
+
+	<!-- <view class="mdStyle" wx:if="{{showNot&&bindCardId==item.card_id}}"> -->
+	<view class="mdStyle" wx:if="{{bindCardId==item.card_id}}">
+		<!-- 滚动 -->
+		<scroll-view scroll-y class="scrollPage">
+			<wemark md="{{md}}" link highlight type="wemark"></wemark>
+		</scroll-view>
+	</view>
+
+</view>

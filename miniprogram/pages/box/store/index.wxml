@@ -1,0 +1,27 @@
+<cu-custom isBack="{{true}}">
+	<!-- <cu-custom bgColor="white" isBack="{{true}}"> -->
+	<view slot="backText">返回</view>
+	<view slot="content">卡集分享</view>
+</cu-custom>
+
+
+<view class='nav-list'>
+
+	<!--写笔记-->
+	<!-- <view class='nav-li add_box' bindtap="onShareSelect">
+		<image src="../../../images/share.png" style="width:120rpx;height:120rpx;"></image>
+	</view> -->
+
+	<view class="nav-li bg-{{item.box_color}} " wx:for="{{items}}" data-key="{{item.box_id}}" bindtap="getBoxCard" data-color="{{item.box_color}}" data-box_name="{{item.box_name}}" data-box_password="{{item.password}}">
+		<view class="nav-title">{{item.box_name}}</view>
+		<view class="nav-name">ID:{{item.box_id}}</view>
+		<view class="nav-name">密码:{{item.password}}</view>
+	</view>
+
+</view>
+<view class='cu-tabbar-height'></view>
+
+<view class="share" bindtap="onShareSelect">
+		<image src="../../../images/share.png"></image>
+		<text>分享</text>
+	</view>

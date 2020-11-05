@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/card/selectAllCards/index",
+
+    "pages/user/user",
+
+    "pages/profile/profile",
+    "pages/phone/phone",
+    "pages/about/about",
+
+    "pages/card/createCard/index",
+    "pages/card/modCard/index",
+    "pages/card/getCards/index",
+    "pages/card/cardsList/index",
+
+    "pages/box/cardsList/index",
+    "pages/box/shareCardsList/index",
+    "pages/box/createBox/index",
+    "pages/box/getBoxes/index",
+    "pages/box/modBox/index",
+    "pages/box/clone/index",
+    
+    "pages/photo/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "@bgTxtStyle",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationBarTitleText": "记忆手卡",
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 50,
+    "backgroundColor": "@bgColor"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "wemark": "/wemark/wemark"
+  },
+  
+  "tabBar": {
+    "color": "@tabFontColor",
+    "selectedColor": "#75b79e",
+    "backgroundColor": "@tabBgColor",
+    "list": [
+      {
+        "pagePath": "pages/box/getBoxes/index",
+        "text": "卡集",
+        "iconPath": "images/cardBag.png",
+        "selectedIconPath": "images/cardBagSelect.png"
+      },
+      {
+        "pagePath": "pages/card/selectAllCards/index",
+        "text": "卡片",
+        "iconPath": "images/postcard.png",
+        "selectedIconPath": "images/postcardSelect.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/userSelect.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "themeLocation": "theme.json",
+  "darkmode": false
+}

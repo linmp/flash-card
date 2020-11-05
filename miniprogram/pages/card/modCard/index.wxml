@@ -1,0 +1,116 @@
+<cu-custom bgColor="bg-{{color}}" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">更改卡片</view>
+</cu-custom>
+
+
+<!-- <form bindsubmit="onSubmit" bindreset="">
+	<view class="container">
+
+		<view class='title'>
+			<input name="question" placeholder-class="placeholder" placeholder="在此输入题目" value="{{question}}" />
+		</view>
+
+
+
+	<view class="padding-sm flex flex-wrap">
+				<view class="padding-xs" wx:for="{{ColorList}}" data-color="{{item.name}}" bindtap="getColor">
+
+			<view class="cu-tag line-{{item.name}}">{{item.title}}</view>
+		</view>
+	</view>
+
+		<view class='row'>
+			<textarea class='text' value="{{answer}}" name="answer" bindblur="bindTextAreaBlur" hold-keyboard maxlength="50000" auto-height placeholder="在此输入答案" />
+			</view>
+
+
+  <view class="padding bg-white ">
+    <view class=" flex  p-xs margin-bottom-sm mb-sm bottom">
+      <button bindtap="deleteCard" class="flex-sub bg-red margin-xs radius  ">删除</button>
+      <button formType="submit" class="flex-treble bg-green margin-xs radius  ">更改</button>
+    </view>
+  </view>
+
+		<view class="photo" bindtap="getPhoto">
+			<image src="../../../images/photo.png"></image>
+			<text>选图</text>
+		</view>
+
+
+
+		<view class='row'>
+		<view class="action" wx:if="{{md!=''}}">
+	<text class="cuIcon-title text-green "> 内容预览如下 </text> 
+		
+		</view>
+			<wemark md="{{answer}}" link highlight type="wemark"></wemark>
+		</view>
+
+</view>
+</form> -->
+
+
+<form bindsubmit="onSubmit" bindreset="">
+
+
+	<view class='title'>
+		<textarea class='text' value="{{question}}" name="question"  bindblur="getTitle"  maxlength="100" auto-height placeholder="在此输入提示语" />
+		</view>
+
+	<view class="padding-sm flex flex-wrap ">
+				<view class="padding-xs" wx:for="{{ColorList}}" data-color="{{item.name}}" bindtap="getColor">
+			<view class="cu-tag line-{{item.name}}">{{item.title}}</view>
+		</view>
+	</view>
+
+
+<view class="container">
+	<editor id="editor" name="answer" class="ql-container" style="height:{{editorHeight * 0.73}}px;" placeholder="{{placeholder}}"  bindstatuschange="onStatusChange" bindready="onEditorReady" bindinput="bindTextAreaBlur">
+	</editor>
+</view>
+
+
+
+
+  <view class="padding bg-white ">
+    <view class=" flex  p-xs margin-bottom-sm mb-sm bottom">
+      <button bindtap="deleteCard" class="flex-sub bg-red margin-xs radius  ">删除</button>
+      <button formType="submit" class="flex-treble bg-green margin-xs radius  ">更改</button>
+    </view>
+  </view>
+
+
+
+	<view class="photo" bindtap="getPhoto">
+		<image src="../../../images/photo.png"></image>
+		<text>选图</text>
+	</view>
+
+
+
+
+	<view class="action" wx:if="{{question!=''}}">
+		<text class="cuIcon-title text-green "> 效果预览如下 </text>  
+	</view>
+
+	<view  class="container padding" wx:if="{{question!=''}}" > 
+
+		<view class="padding flex text-center text-grey bg-{{color}} shadow-warp">
+			<text class="word-content">{{question}}</text>
+		</view>
+		<wemark md="{{md}}" link highlight type="wemark"></wemark>
+
+	</view>
+
+</form>
+
+
+<view  wx:if="{{!isHtml}}" class="toolbar" catchtouchend="format" hidden="{{keyboardHeight > 0 ? false : true}}" style="bottom: {{isIOS ? keyboardHeight : 0}}px">
+	<i class="iconfont icon-format-header-2 {{formats.header === 2 ? 'ql-active' : ''}}" data-name="header" data-value="{{2}}"></i>
+	<i class="iconfont icon-format-header-3 {{formats.header === 3 ? 'ql-active' : ''}}" data-name="header" data-value="{{3}}"></i>
+	<i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+	<i class="iconfont icon--checklist" data-name="list" data-value="check"></i>
+	<i class="iconfont icon-youxupailie {{formats.list === 'ordered' ? 'ql-active' : ''}}" data-name="list" data-value="ordered"></i>
+	<i class="iconfont icon-wuxupailie {{formats.list === 'bullet' ? 'ql-active' : ''}}" data-name="list" data-value="bullet"></i>
+</view>

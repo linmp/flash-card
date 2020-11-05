@@ -1,0 +1,38 @@
+/* pages/photo/index.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+page {
+  background: #f4f4f4;
+  display: block;
+  height: 100%;
+}
+.photo { 
+  height: 120rpx;
+  width: 120rpx;
+  position: fixed;
+  bottom: 170rpx;
+  right: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  background: rgba(0, 0, 0, .6);
+  border-radius: 50%;
+  z-index: 10;
+} 
+.photo image {
+  height: 70rpx;
+  width: 70rpx;
+}
+.photo text {
+  color: #fff;  
+}
+
+.photo button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+  z-index: 99;
+}

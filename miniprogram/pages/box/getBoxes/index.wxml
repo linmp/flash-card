@@ -1,0 +1,24 @@
+<cu-custom >
+	<view slot="content">卡集列表</view>
+</cu-custom>
+
+
+<view class='nav-list'>
+
+	<!--写笔记-->
+	<!-- <view class='nav-li add_box' bindtap="onNewItem">
+		<image src="../../../images/add.png" style="width:120rpx;height:120rpx;"></image>
+	</view> -->
+  	<view class="nav-li bg-{{item.box_color}} " wx:for="{{items}}" data-key="{{item.box_id}}"  bindtap="getBoxCard"  data-color="{{item.box_color}}" data-box_name="{{item.box_name}}" data-box_password="{{item.password}}" bindlongpress="mylongtap">
+		<view class="nav-title">{{item.box_name}}</view>
+		<view class="nav-name">ID:{{item.box_id}}</view>
+		<view class="nav-name">密码:{{item.password}}</view>
+	</view>
+</view>
+<view class='cu-tabbar-height'></view>
+
+
+<view class="add_btn" bindtap="onNewItem">
+	<image src="../../../images/add3.png"></image>
+	<text>添加</text>
+</view>
