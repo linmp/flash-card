@@ -27,10 +27,10 @@ def create_app(dev_name):
     Session(app)
 
     # 注册蓝图
-    from app import admin, main, manage  # 导入包
+    from app import admin, main  # 导入包
 
     app.register_blueprint(main.main, url_prefix="/main")  # 绑定包里面的蓝图对象
     app.register_blueprint(admin.admin, url_prefix="/admin")  # 管理员接口
-    app.register_blueprint(manage.manage, url_prefix="/manage")  # 用户管理登录
+    # app.register_blueprint(manage.manage, url_prefix="/manage")  # 用户管理登录
 
     return app

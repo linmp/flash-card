@@ -114,7 +114,7 @@ def get_token():
     user_openid = UserOpenid.query.filter_by(openid=openid).first()
     # 注册
     if user_openid is None:
-        user = User(username=openid, avatar="avatar_url", password=openid[:6])
+        user = User(username=openid, avatar="https://hicaiji.com/avatar", password=openid[:6])
         try:
             db.session.add(user)
             db.session.commit()
@@ -124,7 +124,7 @@ def get_token():
             return jsonify(code=4001, msg="注册用户失败")
 
         # 保存openid
-        user_openid = UserOpenid(openid=openid, avatar="avatar_url", user_id=user.id)
+        user_openid = UserOpenid(openid=openid, avatar="https://hicaiji.com/avatar", user_id=user.id)
         try:
             db.session.add(user_openid)
             db.session.commit()
@@ -144,6 +144,10 @@ def get_token():
 # 其他端登录 // 暂未做密码验证
 @main.route('/token/login', methods=['POST'])
 def token_login():
+    """
+    具体逻辑用户可以二次开发写密码验证
+    :return:
+    """
     print(request.path)
     req_json = request.get_json()
     username = req_json.get("username")
@@ -283,7 +287,7 @@ def create_box():
     if not all([name, password, color]):
         return jsonify(code=4000, msg="参数不完整")
 
-    msg_data = name + "内容的过度" + password
+    msg_data = name + "内容的拼接" + password
     access_token = g.access_token
 
     if msg_unsafe(access_token, msg_data):
@@ -342,7 +346,7 @@ def share_box():
 
         if box is None:
             return jsonify(code=4002, msg="卡集不存在或者你不是卡集拥有者")
-
+        # 复制卡片
         new_box = Box(name=box.name, password=password, color=box.color, cards=box.cards)
         db.session.add(new_box)
 
@@ -884,7 +888,7 @@ def mark_status():
         return jsonify(code=4005, msg="操作失败")
 
 
-# 获取卡片 v
+# 获取卡片 （这里的查询代码可以优化 等待执行）
 @main.route("/cards", methods=["GET"])
 @user_login_required
 def get_cards():
@@ -1070,7 +1074,7 @@ def get_cards():
     return jsonify(code=200, msg="查询成功", data=payload)
 
 
-# 获取分享的卡集的卡片 v
+# 获取分享的卡集的卡片
 @main.route("/share/cards", methods=["GET"])
 @user_login_required
 def get_share_cards():
@@ -1172,7 +1176,7 @@ def get_share_cards():
     return jsonify(code=200, msg="查询分享成功", summary=summary, data=payload)
 
 
-# 获取主页的卡片数量 v
+# 获取主页的卡片数量
 @main.route("/count", methods=["GET"])
 @user_login_required
 def count_card():

@@ -8,6 +8,10 @@ from flask import request, jsonify, g
 from config import wx_mnp_token, redis_store
 
 
+"""
+管理员端
+"""
+
 # 回调函数
 @admin.route("/callback", methods=["POST", "GET"])
 def callback():
