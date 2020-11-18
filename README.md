@@ -1,5 +1,7 @@
 # 记忆手卡
 
+![记忆手卡](https://cdn.hicaiji.com/lmp/flash_cards.jpg)
+
 ### 音宫有话说
 
 >   这个项目是我自己最喜欢的一个项目之一

@@ -1,6 +1,6 @@
 // 根url
-// var HOST_URI = 'http://127.0.0.1:5000';
-var HOST_URI = 'https://card.jamkung.com';
+var HOST_URI = 'http://192.168.2.105:5000';
+// var HOST_URI = 'https://card.jamkung.com';
 // 创建盒子
 var CREATE_BOX = '/main/box?token=';
 // 获取用户的所有盒子
